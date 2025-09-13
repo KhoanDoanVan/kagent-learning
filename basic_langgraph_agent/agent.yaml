@@ -1,0 +1,17 @@
+apiVersion: kagent.dev/v1alpha2
+kind: Agent
+metadata:
+  name: basic-currency-langgraph-a2a-agent
+  namespace: kagent
+spec:
+  description: A currency converter LangGraph agent that can convert currencies
+  type: BYO
+  byo:
+    deployment:
+      image: basic-currency-agent:v6
+      env:
+        - name: GOOGLE_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: kagent-langgraph-google
+              key: GOOGLE_API_KEY
