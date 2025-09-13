@@ -2,12 +2,13 @@ apiVersion: kagent.dev/v1alpha2
 kind: Agent
 metadata:
   name: basic-agent
+  namespace: kagent
 spec:
   description: This agent can do anything
   type: BYO
   byo:
     deployment:
-      image: localhost:5001/my-bio:latest
+      image: my-byo:latest
       env:
         - name: GOOGLE_API_KEY
           valueFrom:
